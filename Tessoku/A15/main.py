@@ -32,3 +32,18 @@
 
 import bisect
 
+N = int(input())
+A_list = list(map(int, input().split()))
+copy_list = A_list.copy()
+
+A_list.append(0)
+A_list = list(set(A_list))
+A_list.sort()
+
+B_list = []
+
+for a in copy_list:
+    idx = bisect.bisect_left(A_list, a)
+    B_list.append(idx)
+
+print(" ".join(map(str, B_list)))
